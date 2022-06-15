@@ -14,7 +14,7 @@ Sputnik uses the CMake build system. Sputnik depends on the CUDA toolkit (v10.1+
 
 The test and benchmark suites additionally depend on [abseil/abseil-cpp](https://github.com/abseil/abseil-cpp), [google/googltest](https://github.com/google/googletest), and [google/benchmark](https://github.com/google/benchmark). These dependencies are includes as submodules in [third_party](https://github.com/google-research/sputnik/tree/os-build/third_party). To build the test suite and/or benchmark suite, set `-DBUILD_TEST=ON` and/or `-DBUILD_BENCHMARK=ON` in your `cmake` command.
 
-`cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -DBUILD_BENCHMARK=ON -DCUDA_ARCHS="70;75"`
+`cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -DBUILD_BENCHMARK=ON -DCUDA_ARCHS="80"`
 
 ## Docker
 
@@ -41,5 +41,11 @@ If you make use of this library, please cite:
 
 The sparse models and dataset of sparse matrices from deep neural networks from the above paper can be found [here](https://github.com/google-research/google-research/tree/master/sgk).
 
-## Disclaimer
-This is not an official Google product.
+cd third_party
+rm -rf abseil-cpp
+git clone https://github.com/abseil/abseil-cpp.git
+rm -rf benchmark
+git clone https://github.com/google/benchmark.git
+rm -rf googletest
+git clone https://github.com/google/googletest.git
+
